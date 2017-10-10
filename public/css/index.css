@@ -1,0 +1,127 @@
+﻿body {
+    background-color: #333;
+}
+
+.logo {
+    width: 100%;
+    height: 12%;
+    position:fixed;
+    top:1%;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(0, 150, 0);
+}
+
+.logo p {
+    position:center;
+    color:black;
+    font-weight:bold;
+}
+
+button {
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
+input {
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
+.wellcome {
+    width: 50%;
+    height: 72%;
+    position:fixed;
+    top:16%;
+    left:25%;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 2% 20%;
+    background-color: lightgray;
+    text-align: center;
+}
+
+.wellcome p {
+    text-shadow: 0.5px 0.5px rgb(0, 150, 0);
+    color: black;
+    position:center;
+}
+
+.wellcome img {
+    width: 400px;
+    height: 400px;
+}
+
+.wellcome img:hover {
+    -webkit-animation: mymove 1s forwards;
+}
+
+@keyframes mymove {
+    from {
+        width: 400px;
+        height: 400px;
+    }
+
+    to {
+        width: 420px;
+        height: 420px;
+    }
+}
+
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 1%;
+    font-size: 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: black;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+footer a {
+    color: rgb(0, 150, 0);
+}
+
+.footermiddle {
+    position:fixed;
+    left:40%;
+    width: 20%;
+    }
+
+.footerleft {
+    width: 40%;
+    height: 40px;
+    float: left;
+    border-radius: 5px 100px 5px 5px;
+    background-color: rgb(0,150, 0);
+    animation: 10s footrl infinite;
+}
+
+.footerright {
+    width: 40%;
+    height: 40px;
+    float:right;
+    border-radius: 100px 5px 5px 5px;
+    background-color: rgb(0,150,0);
+    animation: 10s footrl infinite;
+}
+
+@keyframes footrl {
+    0% {
+        width:10%;
+    }
+    50% {
+        width: 40%;
+    }
+    100% {
+        width: 10%;
+    }
+}
+

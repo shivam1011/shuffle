@@ -1,0 +1,13 @@
+﻿body
+{
+}
+.pluggy_container {
+	/*
+    border: 2px solid gray;
+	*/
+}
+@keyframes dissy 
+{
+    from {opacity:0;}
+    to {opacity:1;}
+}
