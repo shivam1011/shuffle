@@ -1,1 +1,15 @@
-﻿
+﻿.recommendation {
+    width:100%;
+    position:absolute;
+    top:12%;
+    left:5%;
+}
+
+    .recommendation table tr {
+        margin-top:2%;
+    }
+    .recommendation table td {
+        margin-left: 2%;
+        text-align:center;
+    }
+
