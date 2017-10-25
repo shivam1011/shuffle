@@ -27,14 +27,21 @@ router.post('/login', (req, res) => {
   console.log(userid)
   var datum = ""
   var login_status = false
-  db.collection('profiles').findOne({"userid":userid},{"password": req.body.password}, function(err, result) {
+  db.collection('profiles').find({"userid":userid},{"password": req.body.password}).toArray(function(err, result) {
     if (err) throw err
     if(result!=null) {
-      console.log(result.userid+' logged in.')
+      console.log(result[0]["userid"]+' logged in.')
       console.log('USER LOGGED IN MUTHAFUCKAH!!!')
       datum = userid + " logged in!"
       login_status = true
       req.session.userid = userid;
+      
+      req.session.name = result.name;
+      req.session.address = result.address;
+      req.session.Country = result.Country;
+      req.session.Zipcode = result.Zipcode;
+      req.session.email = result.email;
+      req.session.english = result.english;
     }
     else{
       console.log("User Not Found!")
@@ -55,10 +62,19 @@ router.post('/login', (req, res) => {
 })
 
 router.get('/set_profile', (req, res) => {
+  var datum = {
+    userid : req.session.userid,
+    name : req.session.name,
+    address : req.session.address,
+    Country : req.session.Country,
+    Zipcode : req.session.Zipcode,
+    email : req.session.email,
+    english : req.session.english
+  }
   var response = {
     status  : 200,
     success : 'Updated Successfully',
-    data : req.session.userid
+    data : datum
   }
   res.end(JSON.stringify(response));
   })

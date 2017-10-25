@@ -35,7 +35,8 @@ function set_profile()
         success: function (result) {
          // Write something here
          alert(result["data"])
-         var dev_profile = document.getElementById("dev_profile").innerHTML = result["data"]
+
+         //var dev_profile = document.getElementById("dev_profile").innerHTML = result["data"]
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
