@@ -14,45 +14,79 @@
 </head>
 
 <body onload="set_profile()">
-<header>
-    <div class="dropdown">
-        <button class="dropbtn">
-            <img src="images/menu.png" />
-        </button>
-        <div class="dropdown-content">
-            <a href="home">Profile</a>
-            <a href="discover">Discover</a>
-            <a href="dashboard">Dashboard</a>
-            <a href="playlists">Playlists</a>
+    <header>
+        <div class="dropdown">
+            <button class="dropbtn">
+                <img src="images/menu.png" />
+            </button>
+            <div class="dropdown-content">
+                <a href="home">Profile</a>
+                <a href="discover">Discover</a>
+                <a href="dashboard">Dashboard</a>
+                <a href="playlists">Playlists</a>
+            </div>
         </div>
+
+	    <img id="search" src="images/search.png" />
+
+        <div class="search_popup">
+            <div class="search-content">
+                <form>
+                    <input type="text" id="search_txt" />
+                    <button>search</button>
+                    <span id="search_close">&times;</span>
+                </form>
+             </div>
+        </div>
+	    <div class="dev-profile" align="center" >
+            <p id="dev_profile"></p>
+        </div>
+    </header>
+
+    <div class="user_profile">
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
     </div>
 
-	<img id="search" src="images/search.png" />
+    <footer align="center">
+	    <div class="player">
+            <label  class="com">COMING</label>
+            <img id="tray" src="images/tray.png" />
+            <label class="com"> SOON</label>
+        </div>
+    </footer>
 
-    <div class="search_popup">
-        <div class="search-content">
-            <form>
-                <input type="text" id="search_txt" />
-                <button>search</button>
-                <span id="search_close">&times;</span>
-            </form>
-         </div>
-    </div>
-	<div class="dev-profile" align="center" >
-        <p id="dev_profile"></p>
-    </div>
-</header>
-
-<footer align="center">
-	<div class="player">
-        <label  class="com">COMING</label>
-        <img id="tray" src="images/tray.png" />
-        <label class="com"> SOON</label>
-    </div>
-</footer>
     <script src="js/login_signup.js" type="text/javascript"></script>
-<script src="js/search.js" type="text/javascript"></script>
-<script src="js/player.js" type="text/javascript"></script>
+    <script src="js/search.js" type="text/javascript"></script>
+    <script src="js/player.js" type="text/javascript"></script>
 
 </body>
 </html>
