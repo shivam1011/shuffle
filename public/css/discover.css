@@ -2,14 +2,14 @@
     width:100%;
     position:absolute;
     top:12%;
-    left:5%;
+    left:2%;
 }
 
     .recommendation table tr {
         margin-top:2%;
     }
     .recommendation table td {
-        margin-left: 2%;
+        margin-left: 10%;
         text-align:center;
     }
 
