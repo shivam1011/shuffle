@@ -8,9 +8,15 @@
     .recommendation table tr {
         margin-top:2%;
     }
+    .recommendation tr:hover {
+        background-color: black;
+    }
     .recommendation table td {
         margin-left: 10%;
         text-align:center;
+    }
+    .recommendation td:hover {
+        background-color: green;
     }
     .recommendation figcaption {
         margin-top:10%;
