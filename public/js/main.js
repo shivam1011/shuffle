@@ -1,4 +1,4 @@
-function set_profile1()
+function set_profile_bar()
 {
     try{
     $.ajax({
@@ -8,8 +8,8 @@ function set_profile1()
         dataType: "json",
         success: function (result) {
          // Write something here
-         alert(result["data"])
-         var dev_profile = document.getElementById("dev_profile").innerHTML = result["data"]
+         //alert(result["data"])
+         var dev_profile = document.getElementById("dev_profile").innerHTML = result["data"]["userid"]
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
@@ -82,11 +82,11 @@ function printData()
 			{
 				if(j<4)
 				{
-					cell.innerHTML="<b>"+array[i][id]+"</b>";
+					cell.innerHTML="<h4>"+array[i][id]+"</h4>";
 				}
 				else
 				{
-					cell.innerHTML="<b>"+"Play"+"</b>";
+					cell.innerHTML="<h4>"+"Play"+"</h4>";
 					playSong(cell);
 				}
 				
@@ -104,13 +104,13 @@ function printData()
 function playSong(cell)
 {
 	cell.onclick=function() {
-		this.style.border = "2px solid white";
+		//this.style.border = "2px solid white";
 		//window.location.replace("/kaam4/gaana");
 		
 		//extract sibling ka sibling
 		var songName = cell.previousSibling.previousSibling.previousSibling.innerHTML;
-		songName=songName.slice(3,songName.length-4);
-		alert(songName);
+		songName=songName.slice(4,songName.length-5);
+		//alert(songName);
 		var audio = new Audio();
 		if(document.getElementById("id_audio") == null)
 		{

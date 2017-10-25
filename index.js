@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 //var popupS = require('popups');
 var session = require('client-sessions');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 //route of files
 var kaam0 = require('./routes/kaam0');
@@ -28,13 +30,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-//session init
+/*session init
 app.use(session({
 	cookieName: 'session',
-	secret: 'random_string_goes_here',
+	secret: 'bakchodi',
 	duration: 30 * 60 * 1000,
 	activeDuration: 5 * 60 * 1000,
   }));
+*/
+app.use(cookieParser());
+app.use(session({secret: "Shh, its a secret!"}));
+
+const MongoClient = require('mongodb').MongoClient
+
+db=""
+
+MongoClient.connect('mongodb://localhost:27017/db2', (err, database) => {
+  if (err) return console.log(err)
+  db = database
+})
 
 //Events
 app.use('/', kaam0) //display shuffle.html

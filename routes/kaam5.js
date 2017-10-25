@@ -2,14 +2,8 @@
 
 var express = require('express');
 var router = express.Router();
-const MongoClient = require('mongodb').MongoClient
 
-var db
 
-MongoClient.connect('mongodb://localhost:27017/db2', (err, database) => {
-  if (err) return console.log(err)
-  db = database
-})
 
 router.post('/signup', (req, res) => {
   db.collection('profiles').save(req.body, (err, result) => {
@@ -22,20 +16,26 @@ router.post('/signup', (req, res) => {
 
 router.post('/login', (req, res) => {
   console.log("aye hye")
+  //console.log(stream.write())
   var cursor = db.collection('profiles').find()
   var userid = req.body.userid
   console.log(userid)
   var datum = ""
   var login_status = false
-  db.collection('profiles').findOne({"userid":userid},{"password": req.body.password}, (function(err, result) {
+  var query ={"userid":userid ,"password": req.body.password}
+  db.collection("profiles").findOne(query, function(err, result) {
     if (err) throw err
     if(result!=null) {
       console.log('User logged in.')
       datum = userid + " logged in!"
       login_status = true
-      req.session.user = JSON.stringify(result)
+      req.session.user = result//JSON.stringify(result)
+      res.locals.user = JSON.stringify(result)
       console.log("session stored")
-      console.log(req.session.userid)
+      console.log(result.userid)
+      console.log("\n***\n")
+      console.log(req.session.user)
+      console.log(req.session.user.userid)
     }
     else{
       console.log("User Not Found!")
@@ -47,9 +47,9 @@ router.post('/login', (req, res) => {
       data : datum,
       login : login_status
     }
-    res.end(JSON.stringify(response));
     //db.close()
-  }));
+    res.end(JSON.stringify(response));
+  });
   //res.write(userid)
   //console.log(cursor)
   //yahaan pe session variable mein saara randaap load karenge where randaap= json mein songs + user ki profile
@@ -57,20 +57,19 @@ router.post('/login', (req, res) => {
 
 router.get('/set_profile', (req, res) => {
   var datum = {
-    userid : req.session.userid,
-    name : req.session.name,
-    address : req.session.address,
-    Country : req.session.Country,
-    Zipcode : req.session.Zipcode,
-    email : req.session.email,
-    english : req.session.english
+    userid : req.session.user.userid,
+    name : req.session.user.name,
+    address : req.session.user.address,
+    Country : req.session.user.Country,
+    Zipcode : req.session.user.Zipcode,
+    email : req.session.user.email,
+    english : req.session.user.english
   }
   var response = {
     status  : 200,
     success : 'Updated Successfully',
     data : datum
-  }
+}
   res.end(JSON.stringify(response));
   })
-
-module.exports = router;
+  module.exports = router;

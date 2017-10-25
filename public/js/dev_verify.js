@@ -34,8 +34,26 @@ function set_profile()
         dataType: "json",
         success: function (result) {
          // Write something here
-         alert(result["data"])
-
+         var userid = result["data"]["userid"]
+         var name = ""
+         for (i=0; result["data"]["name"][i]!=null; i++)
+            name += result["data"]["name"][i] + " "
+         var address = result["data"]["address"]
+         var Country = result["data"]["Country"]
+         var Zipcode = result["data"]["Zipcode"]
+         var email = result["data"]["email"]
+         var english = result["data"]["english"]
+         
+        document.getElementById("dev_profile").innerHTML = userid;
+        document.getElementById("profile_header").innerHTML = userid.toUpperCase() + "'S PROFILE";
+        document.getElementById("userid").innerHTML = userid;
+        document.getElementById("name").innerHTML = name;
+        document.getElementById("address").innerHTML = address;
+        document.getElementById("Country").innerHTML = Country;
+        document.getElementById("Zipcode").innerHTML = Zipcode;
+        document.getElementById("email").innerHTML = email;
+        document.getElementById("english").innerHTML = english;
+        
          //var dev_profile = document.getElementById("dev_profile").innerHTML = result["data"]
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
