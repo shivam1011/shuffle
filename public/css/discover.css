@@ -9,7 +9,7 @@
         margin-top:2%;
     }
     .recommendation tr:hover {
-        background-color: black;
+        background-color: gray;
     }
     .recommendation table td {
         margin-left: 10%;
