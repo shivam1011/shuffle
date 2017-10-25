@@ -5,13 +5,15 @@
   <meta charset="utf-8">
 	<script src="js/home.js" type="text/javascript"></script>
 	<script src="js/pluggy.js" type="text/javascript"></script>
-	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="js/dev_verify.js" type="text/javascript"></script>
+
 	<link rel="stylesheet" href="css/home.css"/>
     	<link rel="stylesheet" type="text/css" href="css/login_signup.css" />
 	<link rel="stylesheet" href="css/pluggy_style.css"/>
 </head>
 
-<body>
+<body onload="set_profile()">
 <header>
     <div class="dropdown">
         <button class="dropbtn">
@@ -36,73 +38,9 @@
             </form>
          </div>
     </div>
-	
-    <div class="login_signup" style="top:0;">
-        <button id="login">Login</button><br />
-        <button id="signup">SignUp</button>
+	<div class="dev-profile">
+        <p id="dev_profile"></p>
     </div>
-
-    <div id="login_popup">
-        <div class="login-content">
-            <span id="login_close">&times;</span>
-            <form class="login-form" action="/kaam5/login" method="post">
-                <input type="text" name="userid" placeholder="username" />
-                <input type="password" name="password" placeholder="password" />
-                <button >login</button>
-                <p class="message">Not registered? <a id="creacc">Create an account</a></p>
-            </form>
-        </div>
-    </div>
-
-    <div id="signup_popup">
-        <div class="signup-content">
-            <span id="signup_close">&times;</span>
-            <h1 align="center">Sign Up here</h1>
-            <div class="form_title">
-                <p>User ID:</p><br/>
-                <p>Password:</p><br />
-                <p>Name:</p><br />
-                <p>Address:</p><br />
-                <p>Country:</p><br />
-                <p>Zipcode:</p><br />
-                <p>Email:</p><br />
-                <p>Sex:</p>
-                <p>Language:</p><br />
-                <p>About:</p>
-            </div>
-            <form action="/kaam5/signup" method="post">
-                <input type="text" name="userid" id="" required="required" pattern="[A-Za-z]{5,12}" title="User ID should be 5-12 letters only" placeholder="User ID">
-                <br/><br /><br />
-                <input type="password" name="password" id="password" pattern="[A-Za-z]{7,12}" title="Password should be 7-12 letters only" required="" placeholder="Password">
-                <br/><br /><br />
-                <input type="text" name="name" id="name" pattern="[A-Za-z]{3,10}" title="Username should be 3-10 letters only" required="" placeholder="Enter Your Name">
-                <br/><br /><br />
-                <input type="text" name="address" id="address">
-                <br/><br /><br />
-                <select name="Country" required="required">
-                    <option value="usa">USA</option>
-                    <option value="india">India</option>
-                    <option value="uk">UK</option>
-                </select>
-                <br/><br />
-                <input type="text" name="Zipcode" id="Zipcode" required="required" pattern="[0-9]{6}" placeholder="Enter Zip Code" title="Zipcode must be of 6 digits.">
-                <br/><br /><br />
-                <input type="email" name="email" id="email" required="required">
-                <br/><br /><br />
-                <input type="radio" name="name" id="male">Male
-                <input type="radio" name="name" id="female">Female
-                <br/><br />
-                <input type="checkbox" name="english" id="" value="english">English
-                <input type="checkbox" name="nonenglish" id="" value="nonenglish">Non English
-                <br/><br />
-                <textarea rows="5" cols="30" placeholder="Tell us about yourself"></textarea>
-                <br/><br />
-                <button type="submit" value="submit">submit</button>
-            </form>
-        </div>
-    </div>
-
-
 </header>
 
 <footer align="center">

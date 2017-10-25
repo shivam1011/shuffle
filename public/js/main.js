@@ -1,3 +1,23 @@
+function set_profile1()
+{
+    try{
+    $.ajax({
+        url: "http://localhost:3000/kaam5/set_profile",
+        type: "GET",
+        data: '',
+        dataType: "json",
+        success: function (result) {
+         // Write something here
+         alert(result["data"])
+         var dev_profile = document.getElementById("dev_profile").innerHTML = result["data"]
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+    }})
+    }
+    catch(e){alert(e)}
+}
+
 //global declarations for csv loading
 var data;
 
@@ -14,7 +34,7 @@ function loadData()
 	  /*document.getElementById("demo").innerHTML =
       this.responseText;*/
 	  data = this.responseText;
-	  alert("Data Loaded");
+	  printData();
     }
   };
   xhttp.open("GET", "http://localhost:3000/kaam1", true);
@@ -26,7 +46,7 @@ function loadData()
 function printData()
 {
 	try{
-	alert("printData() chalu...");
+	//alert("printData() chalu...");
 	var array = jQuery.parseJSON(data);
 	var i,j;
 	var tabla = document.getElementById("myTable");
@@ -73,7 +93,7 @@ function printData()
 			}
 		}
 	}
-	alert("SUCCESS!");
+	//alert("SUCCESS!");
 	}
 	catch(err)
 	{
@@ -100,7 +120,7 @@ function playSong(cell)
 		{
 			audio = document.getElementById("id_audio");
 		}
-		audio.src = '/songs/'+songName+".mp4";
+		audio.src = '/songs/'+songName+".mp3";
 		audio.controls = true;
 		audio.autoplay = true;
 		audio.id = 'id_audio';

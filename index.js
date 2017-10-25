@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var fs = require('fs');
+//var popupS = require('popups');
+var session = require('client-sessions');
 
 //route of files
 var kaam0 = require('./routes/kaam0');
@@ -25,6 +27,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Body Parser MW
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+//session init
+app.use(session({
+	cookieName: 'session',
+	secret: 'random_string_goes_here',
+	duration: 30 * 60 * 1000,
+	activeDuration: 5 * 60 * 1000,
+  }));
 
 //Events
 app.use('/', kaam0) //display shuffle.html

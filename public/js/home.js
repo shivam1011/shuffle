@@ -2,7 +2,7 @@ function loginErr()
 {
 	alert("Please create an account to access these features!");
 }
-
+/*
 var data;
 
 function loadData() 
@@ -72,3 +72,4 @@ function printData()
 		alert(err);
 	}
 }
+*/
