@@ -27,21 +27,15 @@ router.post('/login', (req, res) => {
   console.log(userid)
   var datum = ""
   var login_status = false
-  db.collection('profiles').find({"userid":userid},{"password": req.body.password}).toArray(function(err, result) {
+  db.collection('profiles').findOne({"userid":userid},{"password": req.body.password}, (function(err, result) {
     if (err) throw err
     if(result!=null) {
-      console.log(result[0]["userid"]+' logged in.')
-      console.log('USER LOGGED IN MUTHAFUCKAH!!!')
+      console.log('User logged in.')
       datum = userid + " logged in!"
       login_status = true
-      req.session.userid = userid;
-      
-      req.session.name = result.name;
-      req.session.address = result.address;
-      req.session.Country = result.Country;
-      req.session.Zipcode = result.Zipcode;
-      req.session.email = result.email;
-      req.session.english = result.english;
+      req.session.user = JSON.stringify(result)
+      console.log("session stored")
+      console.log(req.session.userid)
     }
     else{
       console.log("User Not Found!")
@@ -55,7 +49,7 @@ router.post('/login', (req, res) => {
     }
     res.end(JSON.stringify(response));
     //db.close()
-  });
+  }));
   //res.write(userid)
   //console.log(cursor)
   //yahaan pe session variable mein saara randaap load karenge where randaap= json mein songs + user ki profile
