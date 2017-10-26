@@ -44,7 +44,7 @@ function set_profile()
          var email = result["data"]["email"]
          var english = result["data"]["english"]
          
-        document.getElementById("dev_profile").innerHTML = userid;
+        document.getElementById("dev_profile").innerHTML = name+" "+"("+userid+")";
         document.getElementById("profile_header").innerHTML = userid.toUpperCase() + "'S PROFILE";
         document.getElementById("userid").innerHTML = userid;
         document.getElementById("name").innerHTML = name;

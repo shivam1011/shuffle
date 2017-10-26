@@ -24,6 +24,7 @@ var data;
 //to read data from csv file
 function loadData() 
 {
+	play_load_gif()
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
 	//alert("ready state");
@@ -94,6 +95,7 @@ function printData()
 		}
 	}
 	//alert("SUCCESS!");
+	pause_load_gif()
 	}
 	catch(err)
 	{
@@ -120,7 +122,8 @@ function playSong(cell)
 		{
 			audio = document.getElementById("id_audio");
 		}
-		audio.src = '/songs/'+songName+".mp3";
+		//audio.src = '/songs/'+songName+".mp3";
+		audio.src = '/songs/i cant help myself sugar pie honey bunch.mp3'
 		audio.controls = true;
 		audio.autoplay = true;
 		audio.id = 'id_audio';
@@ -141,4 +144,18 @@ function playSong(cell)
 		this.style.cursor = 'default';
 		//this.style.border = "2px solid white";
 	}
+}
+
+function play_load_gif()
+{
+	document.getElementById("article").style.display = "none"
+	document.getElementById("load-gif").style.display = "block"
+	var spinner = new Spinner().spin()
+	document.getElementById("load-gif").appendChild(spinner.el)	
+}
+
+function pause_load_gif()
+{
+	document.getElementById("article").style.display = "inline"
+	document.getElementById("load-gif").style.display = "none"
 }
