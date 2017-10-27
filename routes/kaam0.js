@@ -26,4 +26,8 @@ router.get('/playlists', function(req, res, next){
 	res.render('playlists.html');
 });
 
+router.get('/history', function(req, res, next){
+	res.render('history.html');
+});
+
 module.exports = router;

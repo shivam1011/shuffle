@@ -34,7 +34,7 @@ router.post('/login', (req, res) => {
       console.log("session stored")
       console.log(result.userid)
       console.log("\n***\n")
-      console.log(req.session.user)
+      //console.log(req.session.user)
       console.log(req.session.user.userid)
     }
     else{

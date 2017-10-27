@@ -2,7 +2,7 @@ function dev_login()
 {
     try{
     $.ajax({
-        url: "http://localhost:3000/kaam5/login",
+        url: "/kaam5/login",
         type: "POST",
         data: $('#dev_login').serialize(),
         dataType: "json",
@@ -28,7 +28,7 @@ function set_profile()
 {
     try{
     $.ajax({
-        url: "http://localhost:3000/kaam5/set_profile",
+        url: "/kaam5/set_profile",
         type: "GET",
         data: '',
         dataType: "json",

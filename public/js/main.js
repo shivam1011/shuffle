@@ -2,7 +2,7 @@ function set_profile_bar()
 {
     try{
     $.ajax({
-        url: "http://localhost:3000/kaam5/set_profile",
+        url: "/kaam5/set_profile",
         type: "GET",
         data: '',
         dataType: "json",
@@ -38,7 +38,7 @@ function loadData()
 	  printData();
     }
   };
-  xhttp.open("GET", "http://localhost:3000/kaam1", true);
+  xhttp.open("GET", "/kaam1", true);
   xhttp.withCredentials = false;
   xhttp.send();
 }
@@ -49,6 +49,7 @@ function printData()
 	try{
 	//alert("printData() chalu...");
 	var array = jQuery.parseJSON(data);
+	//alert("DATUM: "+array[0]["FIELD3"]);
 	var i,j;
 	var tabla = document.getElementById("myTable");
 	for(i=0;i<5101;i++)
@@ -66,13 +67,22 @@ function printData()
 		}
 		for(j=0;j<5;j++)
 		{
+			//give index where FIELD1 = i
+			index=-1
+			for(k=0;k<5101;k++){
+				if(array[k]["FIELD1"]==(i.toString())){
+					index=k
+					break;
+				}
+			}
+			
 			var cell = row.insertCell(j);
-			var id="FIELD"+(j+1);
+			var id="FIELD"+(j+2);
 			if(i==0)
 			{
 				if(j<4)
 				{
-					cell.innerHTML="<h3>"+array[i][id]+"</h3>";
+					cell.innerHTML="<h3>"+array[index][id]+"</h3>";
 				}
 				else
 				{
@@ -83,7 +93,7 @@ function printData()
 			{
 				if(j<4)
 				{
-					cell.innerHTML="<h4>"+array[i][id]+"</h4>";
+					cell.innerHTML="<h4>"+array[index][id]+"</h4>";
 				}
 				else
 				{
@@ -98,10 +108,11 @@ function printData()
 	pause_load_gif()
 	}
 	catch(err)
-	{
+{
 		alert(err);
 	}
 }
+
 
 function playSong(cell)
 {
@@ -134,7 +145,7 @@ function playSong(cell)
 		audio.play();
 		//alert("audio played");
 		document.getElementById("id_songName").innerHTML=songName;
-		
+		add_to_history(songName)
 	};
 	cell.onmouseover = function() {
 		this.style.cursor = 'pointer';
@@ -158,4 +169,127 @@ function pause_load_gif()
 {
 	document.getElementById("article").style.display = "inline"
 	document.getElementById("load-gif").style.display = "none"
+}
+
+//from here, the real bakchodi begins
+function add_to_history(songName)
+{
+	/*
+		just fucking send the encrypted song name
+	*/
+	alert(songName)
+	//songName=songName.replace(/\s/g,'_')
+	$.ajax({
+        url: "/kaam3/add_to_history",
+        type: "POST",
+        data: {"song" : songName},
+        dataType: "json",
+        success: function (result) {
+		 // Write something here
+		 alert("Song added to history")
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+    }})
+}
+
+/*
+	*****UPAR PLAYLIST WALA, NEECHE HISTORY WALA*****
+*/
+
+
+function load_history()
+{
+	play_load_gif()
+	var history = [[],[]];
+	$.ajax({
+        url: "/kaam3/load_history",
+        type: "POST",
+        data: "",
+        dataType: "json",
+        success: function (r1) {
+		 // Write something here
+		 //history = jQuery.parseJSON(result1)
+		 history[0] = r1[0]
+		 history[1] = r1[1]
+		 alert("History r1[0] Loaded: "+r1[0])
+		 alert("History r1[1] Loaded: "+r1[1])
+		 display_history(history)
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+    }})
+}
+
+function display_history(history)
+{
+	try{
+		var i,j;
+		var tabla = document.getElementById("myTable");
+		var heading = ["Rank","Song","Artist","Year"]
+		for(i=0,counter=-1;counter<history[1].length-1;)
+		{
+			//alert("i"+i)
+			//alert("counter"+counter)
+			//create row
+			var row, header;
+			if(i==0)
+			{
+				header = tabla.createTHead();
+				row=header.insertRow(i);
+			}
+			else
+			{
+				row = tabla.insertRow(i);
+				counter++;
+			}
+
+			for(j=0;j<5;j++)
+			{
+				//alert("j: "+j)
+				var cell = row.insertCell(j);
+				var id="FIELD"+(j+2);
+				if(i==0)
+				{
+					if(j<4)
+					{
+						cell.innerHTML="<h3>"+heading[j]+"</h3>";
+					}
+					else
+					{
+						cell.innerHTML="<h3>"+"Click To Play"+"</h3>";
+					}
+				}
+				else
+				{
+					if(j<4)
+					{
+						cell.innerHTML="<h4>"+history[0][history[1].length-(counter+1)][id]+"</h4>";
+						//cell.style.borderBottom = "none";
+					}
+					else
+					{
+						cell.innerHTML="<h4>"+"Play"+"</h4>"+"(Listened on: "+history[1][history[1].length-(counter+1)]+")";
+						//cell.style.borderBottom = "none";
+						//cell.colspan=1;
+						playSong(cell);
+						/*
+						i++;
+						row = tabla.insertRow(i);
+						cell = row.insertCell(0);//with increased rowspan
+						cell.colspan = 5;
+						cell.innerHTML="Listened on: "+history[1][counter]+"</br></br></br>";
+						*/
+					}
+				}
+			}
+			i++;
+		}
+		//alert("SUCCESS!");
+		pause_load_gif()
+		}
+		catch(err)
+	{
+			alert(err);
+		}
 }

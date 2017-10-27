@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Playlists</title>
+  <meta charset="utf-8">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/spin.js"></script>
+  
+	<script src="js/home.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="css/home.css"/>
+    <link rel="stylesheet" type="text/css" href="css/login_signup.css" />
+</head>
+
+<body onload="set_profile_bar(); load_history();">
+
+<header>
+    <div class="dropdown">
+        <button class="dropbtn">
+            <img src="images/menu.png" />
+        </button>
+        <div class="dropdown-content">
+            <a href="home">Profile</a>
+            <a href="discover">Discover</a>
+            <a href="dashboard">Dashboard</a>
+            <a href="playlists">Playlists</a>
+            <a href="history">History</a>
+        </div>
+    </div>
+	
+	<img id="search" src="images/search.png" />
+
+    <div class="search_popup">
+        <div class="search-content">
+            <form>
+                <input type="text" id="search_txt" />
+                <button>search</button>
+                <span id="search_close">&times;</span>
+            </form>
+         </div>
+    </div>
+	
+    <div class="dev-profile">
+        <p id="dev_profile"></p>
+    </div>
+
+</header>
+
+<div id="load-gif" style="display: block; margin-top: 15%; margin-left: 40%;">
+    
+</div>
+
+<article id="article"> <!--Here, the Bootstrap table will come-->
+
+  <h1>History!</h1>
+  <table id="myTable">
+	
+  </table>
+  
+</article>
+
+<footer><!--Here, info of currently playing song will come-->
+
+	<p id="id_songName">Here, info of currently playing song will come!</p>
+	<div align="center" id="div_audio">
+		
+	</div>
+	
+</footer>
+
+	<script src="js/login_signup.js" type="text/javascript"></script>
+	<script src="js/search.js" type="text/javascript"></script>
+
+</body>
+</html>

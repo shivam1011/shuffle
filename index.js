@@ -3,7 +3,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 //var popupS = require('popups');
-var session = require('client-sessions');
+//var session = require('client-sessions');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
@@ -16,7 +16,8 @@ var kaam4 = require('./routes/kaam4');
 var kaam5 = require('./routes/kaam5');
 
 var port = 3000;
-
+//var ip = '0.0.0.0';
+var ip = '127.0.0.1';
 var app = express();
 
 //View engine
@@ -53,11 +54,11 @@ MongoClient.connect('mongodb://localhost:27017/db2', (err, database) => {
 //Events
 app.use('/', kaam0) //display shuffle.html
 app.use('/kaam1', kaam1); //Open a file on the server and return it's content:
-app.use('/kaam2', kaam2); //invoke python script and get data from it
-app.use('/kaam3', kaam3); // login signup verify
-app.use('/kaam4', kaam4); //play and download audio file in server
+app.use('/kaam2', kaam2); //***invoke python script and get data from it
+app.use('/kaam3', kaam3); // history
+app.use('/kaam4', kaam4); //***play and download audio file in server
 app.use('/kaam5', kaam5); //login signup verify
 
-app.listen(port, function(){
+app.listen(port, ip, function(){
 	console.log('Server started on port '+port);
 });
