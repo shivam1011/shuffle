@@ -41,45 +41,93 @@
             <span id="signup_close">&times;</span>
             <h1 align="center">Sign Up here</h1>
             <div class="form_title">
-                <p>User ID:</p><br/>
-                <p>Password:</p><br />
-                <p>Name:</p><br />
-                <p>Address:</p><br />
-                <p>Country:</p><br />
-                <p>Zipcode:</p><br />
-                <p>Email:</p><br />
-                <p>Sex:</p>
-                <p>Language:</p><br />
-                <p>About:</p>
             </div>
             <form action="/kaam5/signup" method="post">
-                <input type="text" name="userid" id="" required="required" pattern="[A-Za-z]{5,12}" title="User ID should be 5-12 letters only" placeholder="User ID">
-                <br/><br /><br />
-                <input type="password" name="password" id="password" pattern="[A-Za-z]{7,12}" title="Password should be 7-12 letters only" required="" placeholder="Password">
-                <br/><br /><br />
-                <input type="text" name="name" id="name" pattern="[A-Za-z]{3,10}" title="Username should be 3-10 letters only" required="" placeholder="Enter Your Name">
-                <br/><br /><br />
-                <input type="text" name="address" id="address">
-                <br/><br /><br />
-                <select name="Country" required="required">
-                    <option value="usa">USA</option>
-                    <option value="india">India</option>
-                    <option value="uk">UK</option>
-                </select>
-                <br/><br />
-                <input type="text" name="Zipcode" id="Zipcode" required="required" pattern="[0-9]{6}" placeholder="Enter Zip Code" title="Zipcode must be of 6 digits.">
-                <br/><br /><br />
-                <input type="email" name="email" id="email" required="required">
-                <br/><br /><br />
-                <input type="radio" name="name" id="male">Male
-                <input type="radio" name="name" id="female">Female
-                <br/><br />
-                <input type="checkbox" name="english" id="" value="english">English
-                <input type="checkbox" name="nonenglish" id="" value="nonenglish">Non English
-                <br/><br />
-                <textarea rows="5" cols="30" placeholder="Tell us about yourself"></textarea>
-                <br/><br />
-                <button type="submit" value="submit">submit</button>
+                
+                <table>
+
+                    <tr>
+                        <td><p>User ID:</p></td>
+                        <td>
+                            <input type="text" name="userid" id="" required="required" pattern="[A-Za-z0-9]{5,12}" title="User ID should be 5-12 letters" placeholder="User ID">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Password:</p></td>
+                        <td>
+                            <input type="password" name="password" id="password" pattern="[A-Za-z0-9]{7,12}" title="Password should be 7-12 letters" required="" placeholder="Password">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Name:</p></td>
+                        <td>
+                            <input type="text" name="name" id="name" pattern="[A-Za-z]{0,50}" title="Letters only" required="" placeholder="Enter Your Name">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Address:</p></td>
+                        <td>
+                            <input type="text" name="address" id="address">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Country:</p></td>
+                        <td>
+                            <select name="Country" required="required">
+                                <option value="usa">USA</option>
+                                <option value="india">India</option>
+                                <option value="uk">UK</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Zipcode:</p></td>
+                        <td>
+                            <input type="text" name="Zipcode" id="Zipcode" required="required" pattern="[0-9]+" placeholder="Enter Zip Code" title="Zipcode must be digits only.">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Email:</p></td>
+                        <td>
+                            <input type="email" name="email" id="email" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Sex:</p></td>
+                        <td>
+                            <input type="radio" name="name" id="male">Male
+                            <input type="radio" name="name" id="female">Female
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Language:</p></td>
+                        <td>
+                            <input type="checkbox" name="english" id="" value="english">English
+                            <input type="checkbox" name="nonenglish" id="" value="nonenglish">Non English
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>About your self:</p></td>
+                        <td>
+                            <textarea rows="5" cols="30" placeholder="Tell us about yourself"></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><button type="submit" value="submit">submit</button></td>
+                    </tr>
+
+                </table>
             </form>
         </div>
     </div>
