@@ -173,6 +173,7 @@
     }
 
 .signup-content input, select, textarea {
+    width:100%;
     font-family: "Roboto", sans-serif;
     outline: 0;
     background: #aaaaaa;
@@ -182,6 +183,18 @@
     box-sizing: border-box;
     font-size: 14px;
 }
+
+    .signup-content input[type="checkbox"], input[type="radio"] {
+        width: 10%;
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #aaaaaa;
+        color: rgb(0, 150, 0);
+        border: 0;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
 
 .signup-content form {
     position: relative;
