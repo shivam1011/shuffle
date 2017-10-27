@@ -76,6 +76,7 @@ router.post('/add_to_history', function(req, res){
 router.post('/load_history', function(req, res){
 	var history=""
 	var timeStamp=""
+	console.log("WTF!!!!!")
 	item = [[],[]]
 
 	var parse_history = function(){
@@ -101,24 +102,26 @@ router.post('/load_history', function(req, res){
 				throw err
 			}
 			if(result!=null) {
-				console.log("Nahi hua randaap")
+				//console.log("Nahi hua randaap")
 				song = result
-				console.log(result)
+				//console.log(result)
 				item[0].push(song)
 				item[1].push(timeStamp[i])
 
 			}
 			else{
-				console.log("Ho gaya randaap")
+				//console.log("Ho gaya randaap")
 				//console.log("***ITEM-BA***\nafter song getter"+item)
 				//return res.end(JSON.stringify(item))
 			}
 			if(i<history.length-1)
 				song_getter(i+1, history[i+1])
 			else{
+				/*
 				console.log("***ITEM-BA***after song getter[0]: "+item[0])
 				console.log("***ITEM-BA***after song getter[1]: "+item[1])
 				console.log("***ITEM-BA***after song getter: "+JSON.stringify(item))
+				*/
 				return res.end(JSON.stringify(item))
 			}
 		});

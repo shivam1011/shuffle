@@ -30,4 +30,8 @@ router.get('/history', function(req, res, next){
 	res.render('history.html');
 });
 
+router.get('/logout', function(req, res, next){
+	res.render('index.html');
+});
+
 module.exports = router;

@@ -6,12 +6,18 @@
   <!--<meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/spin.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/typeahead.js" type="text/javascript"></script>
+<script src="js/jquery.js"></script>
+    -->
   
-	<script src="js/home.js" type="text/javascript"></script>
-	<script src="js/main.js" type="text/javascript"></script>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  
+  <script src="js/spin.js"></script>
+
+    <script src="js/home.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+
 	<link rel="stylesheet" href="css/home.css"/>
     <link rel="stylesheet" type="text/css" href="css/login_signup.css" />
 </head>
@@ -25,10 +31,11 @@
         </button>
         <div class="dropdown-content">
             <a href="home">Profile</a>
-            <a href="discover">Discover</a>
-            <a href="dashboard">Dashboard</a>
             <a href="playlists">Playlists</a>
             <a href="history">History</a>
+            <a href="discover">Discover</a>
+            <a href="dashboard">Dashboard</a>
+            <a href="logout">Logout</a>
         </div>
     </div>
 	
@@ -36,12 +43,12 @@
 
     <div class="search_popup">
         <div class="search-content">
-            <form>
+            <form onsubmit="return false" action="#">
                 <input type="text" id="search_txt" />
-                <button>search</button>
+                <button onclick="searcher();">search</button>
                 <span id="search_close">&times;</span>
             </form>
-         </div>
+        </div>
     </div>
 	
     <div class="dev-profile">
@@ -54,7 +61,7 @@
     
 </div>
 
-<article id="article"> <!--Here, the Bootstrap table will come-->
+<article id="article"> <!--Here, the Bootstrap table was present :P -->
 
   <h1>History!</h1>
   <table id="myTable">
