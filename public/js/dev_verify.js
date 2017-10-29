@@ -45,7 +45,7 @@ function set_profile()
          var english = result["data"]["english"]
          
         document.getElementById("dev_profile").innerHTML = name+" "+"("+userid+")";
-        document.getElementById("profile_header").innerHTML = userid.toUpperCase() + "'S PROFILE";
+        document.getElementById("profile_header").innerHTML = "WELCOME "+userid.toUpperCase();
         document.getElementById("userid").innerHTML = userid;
         document.getElementById("name").innerHTML = name;
         document.getElementById("address").innerHTML = address;

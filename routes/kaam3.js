@@ -15,6 +15,7 @@ router.post('/add_to_history', function(req, res){
 			if(result!=null) {
 				//songID = require('mongodb').ObjectID(result["_id"]);
 				songID = result["_id"]
+				finder()
 			}
 		})
 	}
@@ -69,7 +70,6 @@ router.post('/add_to_history', function(req, res){
 	//while(historyData.length==0)
 		console.log("...")
 	songIDFinder()
-	finder()
 })
 
 

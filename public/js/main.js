@@ -8,8 +8,12 @@ function set_profile_bar()
         dataType: "json",
         success: function (result) {
          // Write something here
-         //alert(result["data"])
-         var dev_profile = document.getElementById("dev_profile").innerHTML = result["data"]["userid"]
+		 //alert(result["data"])
+		 var name = ""
+         for (i=0; result["data"]["name"][i]!=null; i++)
+            name += result["data"]["name"][i] + " "
+		 var userid = result["data"]["userid"]
+		 document.getElementById("dev_profile").innerHTML = name+" "+"("+userid+")";
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
@@ -177,7 +181,7 @@ function add_to_history(songName)
 	/*
 		just fucking send the encrypted song name
 	*/
-	alert(songName)
+	//alert(songName)
 	//songName=songName.replace(/\s/g,'_')
 	$.ajax({
         url: "/kaam3/add_to_history",
@@ -186,7 +190,18 @@ function add_to_history(songName)
         dataType: "json",
         success: function (result) {
 		 // Write something here
-		 alert("Song added to history")
+		 //alert("Song added to history")
+		 function tempAlert(msg,duration)
+		 {
+		  var el = document.createElement("div");
+		  el.setAttribute("style","display: block;position: fixed;border: 2px solid black;border-radius:25px;margin: 5% 20%;width: 60%;background-color:silver;padding:10px;z-index:2");
+		  el.innerHTML = "<h3 align='center'>"+msg+"<\h3>";
+		  setTimeout(function(){
+		   el.parentNode.removeChild(el);
+		  },duration);
+		  document.body.appendChild(el);
+		 }
+		 tempAlert(songName+": added to history",3500);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
@@ -201,6 +216,7 @@ function add_to_history(songName)
 function load_history()
 {
 	play_load_gif()
+	alert("WOAHHHHHH!!!")
 	var history = [[],[]];
 	$.ajax({
         url: "/kaam3/load_history",
@@ -212,8 +228,8 @@ function load_history()
 		 //history = jQuery.parseJSON(result1)
 		 history[0] = r1[0]
 		 history[1] = r1[1]
-		 alert("History r1[0] Loaded: "+r1[0])
-		 alert("History r1[1] Loaded: "+r1[1])
+		 //alert("History r1[0] Loaded: "+r1[0])
+		 //alert("History r1[1] Loaded: "+r1[1])
 		 display_history(history)
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -223,6 +239,7 @@ function load_history()
 
 function display_history(history)
 {
+	alert("History di length: "+history[0].length)
 	try{
 		var i,j;
 		var tabla = document.getElementById("myTable");
@@ -292,4 +309,35 @@ function display_history(history)
 	{
 			alert(err);
 		}
+}
+
+//yahaan search wali bakchodi hogi
+function searcher(){
+	play_load_gif()
+	var search_item = document.getElementById("search_txt").value;
+	var history = [[],[]];
+	$.ajax({
+        url: "/kaam6/search",
+        type: "POST",
+        data: {inp:search_item},
+        dataType: "json",
+        success: function (r1) {
+		 // Write something here
+		 //history = jQuery.parseJSON(result1)
+		 history[0] = r1[0]
+		 history[1] = r1[1]
+		 //alert("History r1[0] Loaded: "+r1[0])
+		 //alert("History r1[1] Loaded: "+r1[1])
+		 var tabla = document.getElementById("myTable")
+		 tabla.parentNode.removeChild(tabla);
+		 alert(document.getElementById("myTable"))
+
+		 var newTable=document.createElement('table')
+		 newTable.id = 'myTable'
+		 document.getElementById("article").appendChild(newTable)
+		 display_history(history)
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+    }})
 }

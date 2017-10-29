@@ -161,14 +161,14 @@ header {
 
 article{
 	margin: 10px;
-	margin-top: 7%;
+	margin-top: 4%;
 	margin-bottom: 100px;
 	position: static;
 	float: right;
 	width: 97%;
 	padding: 10px;
 	overflow: hidden;
-    border: 2px solid green;
+    /*border: 2px solid green;*/
 }
 
 table {
