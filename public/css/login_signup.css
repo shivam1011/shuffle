@@ -1,4 +1,7 @@
-﻿.login_signup {
+﻿body {
+    font-family: "Roboto", sans-serif;
+}
+.login_signup {
     width: 10%;
     height: 10%;
     float: right;
@@ -174,7 +177,6 @@
 
 .signup-content input, select, textarea {
     width:100%;
-    font-family: "Roboto", sans-serif;
     outline: 0;
     background: #aaaaaa;
     color: rgb(0, 150, 0);
@@ -186,7 +188,6 @@
 
     .signup-content input[type="checkbox"], input[type="radio"] {
         width: 10%;
-        font-family: "Roboto", sans-serif;
         outline: 0;
         background: #aaaaaa;
         color: rgb(0, 150, 0);
