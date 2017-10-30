@@ -10,7 +10,7 @@ function set_profile_bar()
          // Write something here
 		 //alert(result["data"])
 		 var name = ""
-         for (i=0; result["data"]["name"][i]!=null; i++)
+         for (i=0; i<["data"]["name"].length; i++)
             name += result["data"]["name"][i] + " "
 		 var userid = result["data"]["userid"]
 		 document.getElementById("dev_profile").innerHTML = name+" "+"("+userid+")";
