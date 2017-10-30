@@ -151,6 +151,52 @@ header {
         width:3%;
     }
 }
+
+.user_image {
+    width: 10%;
+    height:10%;
+    background-color: rgb(0, 150, 0);
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    text-align:center;
+}
+
+    .user_image img {
+        width:40%;
+    }
+        .user_image img:hover {
+            animation: 1s user_img forwards;
+        }
+
+@keyframes user_img {
+    from {
+        width: 40%;
+    }
+
+    to {
+        width: 50%;
+    }
+}
+
+.dev-profile {
+    display:none;
+    width: 20%;
+    top: 11%;
+    right: 0%;
+    height: 10%;
+    position: fixed;
+    text-align: center;
+    color:rgb(0,150,0);
+    background-color: #333;
+    padding-top: 1%;
+}
+
+    .dev-profile label {
+        position:relative;
+        font-size: 120%;
+    }
+
 .user_profile {
     /*position:absolute;*/
     top:20%;
@@ -171,21 +217,35 @@ article{
     /*border: 2px solid green;*/
 }
 
-table {
+.user_profile table {   
     border-collapse: collapse;
-    border-spacing: 0;
+    border-radius: 15px;
     width: 100%;
-   
 }
 
-th, td {
-    border-bottom: 1px solid white;
-    text-align: left;
+.user_profile tr {
+    background-color: #333;
+}
+
+.user_profile th, td {
+    border: 1px solid rgb(100,100,100);
+    border-radius: 15px;
+    text-align: center;
     padding: 8px;
 }
 
-tr:hover{
-	background-color: green;
+.user_profile tr:hover {
+    animation: 1s user_profile_hover forwards;
+}
+
+@keyframes user_profile_hover {
+    from {
+        background-color: #333;
+    }
+
+    to {
+        background-color: green;
+    }
 }
 
 footer {
@@ -224,17 +284,3 @@ footer img {
     }
 }
 
-.dev-profile {
-    width: 10%;
-    left: 90%;
-    height: 10%;
-    position: fixed;
-    display: block;
-    text-align: center;
-    background-color: rgb(0, 150, 0);
-}
-
-    .dev-profile label {
-        font-size: 120%;
-        color: #333;
-    }

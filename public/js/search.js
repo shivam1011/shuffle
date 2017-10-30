@@ -7,3 +7,7 @@ $("#search_close").click(function () {
     $(".search_popup").fadeOut(1000);
     $("#search").fadeIn(1000);
 });
+
+$("#user_image").click(function () {
+    $(".dev-profile").slideToggle(1000);
+});

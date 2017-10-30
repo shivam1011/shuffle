@@ -4,9 +4,128 @@
 <head>
     <meta charset="utf-8" />
     <title>About Us</title>
-    <link rel="stylesheet" href="css/aboutus.css" />
+    <link rel="stylesheet" type="text/css" href="css/aboutus.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/login_signup.css" />
 </head>
 <body>
+
+    <div class="logo">
+    </div>
+
+    <div class="login_signup">
+        <button id="login">Login</button><br />
+        <button id="signup">SignUp</button>
+    </div>
+
+    <div id="login_popup">
+        <div class="login-content">
+            <span id="login_close">&times;</span>
+            <form class="login-form" id="dev_login" onsubmit="return false" method="POST">
+                <input type="text" name="userid" placeholder="username" />
+                <input type="password" name="password" placeholder="password" />
+                <button onclick="dev_login()">login</button>
+                <p class="message">Not registered? <a id="creacc">Create an account</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="signup_popup">
+        <div class="signup-content">
+            <span id="signup_close">&times;</span>
+            <h1 align="center">Sign Up here</h1>
+            <div class="form_title">
+            </div>
+            <form action="/kaam5/signup" method="post">
+
+                <table>
+
+                    <tr>
+                        <td><p>User ID:*</p></td>
+                        <td>
+                            <input type="text" name="userid" id="" required="required" pattern="[A-Za-z0-9]{5,12}" title="User ID should be 5-12 letters" placeholder="User ID should be 5-12 letters">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Password:*</p></td>
+                        <td>
+                            <input type="password" name="password" id="password" pattern="[A-Za-z0-9]{7,12}" title="Password should be 7-12 letters" required="" placeholder="Password should be 7-12 letter">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Name:*</p></td>
+                        <td>
+                            <input type="text" name="name" id="name" pattern="[A-Za-z]{0,50}" title="Letters only" required="" placeholder="Name should be Letters only">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Address*:</p></td>
+                        <td>
+                            <input type="text" name="address" id="address" placeholder="Put your current address">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Country:*</p></td>
+                        <td>
+                            <select name="Country" required="required">
+                                <option value="usa">USA</option>
+                                <option value="india">India</option>
+                                <option value="uk">UK</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Zipcode:*</p></td>
+                        <td>
+                            <input type="text" name="Zipcode" id="Zipcode" required="required" pattern="[0-9]+" placeholder="Zipcode must be digits only" title="Zipcode must be digits only.">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Email:*</p></td>
+                        <td>
+                            <input type="email" name="email" id="email" required="required" placeholder="Enter your exiting email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Sex:*</p></td>
+                        <td>
+                            Male<input type="radio" name="name" id="male">
+                            Female<input type="radio" name="name" id="female">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Language:*</p></td>
+                        <td>
+                            English<input type="checkbox" name="english" id="" value="english">
+                            Non English<input type="checkbox" name="nonenglish" id="" value="nonenglish">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><p>About your self:</p></td>
+                        <td>
+                            <textarea rows="5" cols="30" placeholder="Tell us about yourself"></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><button type="submit" value="submit">submit</button></td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+    </div>
+
     <div class= "aboutus" >
         <article>
             <h1>About Us</h1>
@@ -14,21 +133,31 @@
                 Bajana Jukebox is a new way to enter to the massive melody and beat. This site is a combination of social media and music players which we provided you a music
                 recommendation base on popularity of individual music. We produced an unique way to achieve  most fantasy recommandation with the new algorithm which developed 
                 by our team members.
-            </p>
+            </p><br/><br /><br />
+
             <h1>The Memmbers</h1>
-            <h>Tajinder Sigh</h>
+
+            <h>guari shivams 's GF</h>
             <p>
-             He is the one who developed the core song recommendation algorithm which is neural network.    
-            </p>
-            <h>Devesh Baja</h>
+             Recommendation algorithm.    
+            </p><br />   
+            
+            <h>Shivam</h>
             <p>
              Backend handler.
-            </p>
+            </p><br /> 
+
             <h>Patipan Suksa-nga</h>
             <p>
                 Frontend designer.
-            </p>
+            </p><br /> 
+
         </article>
     </div>
+
+    <script src="js/login_signup.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/dev_verify.js" type="text/javascript"></script>
+
 </body>
 </html>
