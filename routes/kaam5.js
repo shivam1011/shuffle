@@ -6,12 +6,39 @@ var router = express.Router();
 
 
 router.post('/signup', (req, res) => {
+  //console.log(req.body.email)
   db.collection('profiles').save(req.body, (err, result) => {
     if (err) return console.log(err)
     console.log('saved to database')
+    console.log(req.body.email)
     //popupS.alert({content: 'saved to database'});
+    email_maker(req.body.email)
     res.redirect('/')
   })
+  var email_maker = function(email){
+    var nodemailer = require('nodemailer');
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'shivamgh1011@gmail.com',
+        pass: 'okay1234'
+      }
+    });
+    //var massage = 
+    var mailOptions = {
+      from: 'shivamgh1011@gmail.com',
+      to: email,
+      subject: 'Team Shuffle',
+      html: '<h1>Welcome to Shuffle!</h1><p>Your Shuffle account has been successfully created!</p>'
+    };
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    }); 
+  }
 })
 
 router.post('/login', (req, res) => {

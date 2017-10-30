@@ -3,11 +3,14 @@
 	<link rel="stylesheet" type="text/css" href="css/home.css" />
     <link rel="stylesheet" type="text/css" href="css/login_signup.css" />
     <link rel="stylesheet" type="text/css" href="css/discover.css" />
-    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/discover.js" type="text/javascript"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/spin.js"></script>
+    <script src="js/discover.js" type="text/javascript"></script>
+
 </head>
 
-<body onload="set_profile_bar();">
+<body onload="set_profile_bar(); get_all_usernames(); ">
     <header>
         <div class="dropdown">
             <button class="dropbtn">
@@ -29,139 +32,13 @@
         
     </header>
 
-    <div class="recommendation">
-        <table>
-            <tr>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-                <td>
-                    <figure>
-                        <img src="images/song_default.png" alt="can not load the image." width="150" height="150">
-                        <figcaption>Song name</figcaption>
-                    </figure>
-                </td>
-            </tr>
-        </table>
+    <div id="load-gif" style="display: block; margin-top: 15%; margin-left: 40%;">
+        
     </div>
+<article id="article">
+    <!--Plug, if your finding your code here, I removed it. To get it, call me.-->
 
+</article>
     <footer><!--Here, info of currently playing song will come-->
 
 	    <p>Here, info of currently playing song will come!</p>
