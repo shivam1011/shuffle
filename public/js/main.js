@@ -101,7 +101,7 @@ function printData()
 				}
 				else
 				{
-					cell.innerHTML="<h4>"+"Play"+"</h4>";
+					cell.innerHTML="<img class=\"play_img\" src=\"images/tray.png\"/>";
 					playSong(cell);
 				}
 				
