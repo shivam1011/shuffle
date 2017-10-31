@@ -249,13 +249,20 @@ article{
     }
 }
 
-#myTable{
-    width:100%;
-    background-color:#333;
+#myTable {
+    width: 100%;
+    margin-top: 5%;
+    padding: 3%;
+    border-radius: 15px;
+    background-color: black;
 }
+    #myTable td {
+        border:1px solid #555;
+    }
 
     #myTable tr {
         height: 6em;
+        background-color:#333;
     }
 
     #myTable tr:hover {
