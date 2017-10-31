@@ -182,6 +182,7 @@ function get_IDs(result){
     return(ans)
 }
 */
+var para=""
 function create_triplet(i) //for user i
 {
     //console.log("i in OT is "+i)
@@ -189,6 +190,7 @@ function create_triplet(i) //for user i
     //console.log(history[1][i])
     if(i == history[0].length){
         //alert("I have been waiting for you!")
+        my_printer()
     }
     else if(history[1][i][0]=="none"){ //if a user's history is empty, it will verify by (if first element is undefined)
         create_triplet(i+1)
@@ -210,10 +212,16 @@ function create_triplet(i) //for user i
                     count++;
                 if(j==data.length-1){
                     line = line + count.toString()
-                    document.write(line+"<br>")
+                    para = para + line+"<br>"
                 }
             }
         }
         create_triplet(i+1)
     }
+}
+
+function my_printer(){
+    var intro = "<h2>The recommendation.py triplet file:</h2><p>"
+    document.getElementById("article").innerHTML = intro + para + "</p>";
+    pause_load_gif();
 }
