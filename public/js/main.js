@@ -117,7 +117,7 @@ function printData()
 	}
 }
 
-
+var proxy_num = 0
 function playSong(cell)
 {
 	cell.onclick=function() {
@@ -138,7 +138,14 @@ function playSong(cell)
 			audio = document.getElementById("id_audio");
 		}
 		//audio.src = '/songs/'+songName+".mp3";
-		audio.src = '/songs/i cant help myself sugar pie honey bunch.mp3'
+		var proxy_list = ['/songs/0.mp3','/songs/1.mp3','/songs/2.mp3']
+		//audio.src = '/songs/i cant help myself sugar pie honey bunch.mp3'
+		audio.src = proxy_list[proxy_num]
+		alert(audio.src)
+		proxy_num++;
+		if(proxy_num==3){
+			proxy_num = 0
+		}
 		audio.controls = true;
 		audio.autoplay = true;
 		audio.id = 'id_audio';
