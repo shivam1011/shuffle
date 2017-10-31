@@ -9,11 +9,13 @@ function set_profile_bar()
         success: function (result) {
          // Write something here
 		 //alert(result["data"])
-		 var name = ""
-         for (i=0; i<["data"]["name"].length; i++)
-            name += result["data"]["name"][i] + " "
+		 //var name = ""
+         //for (i=0; i<["data"]["name"].length; i++)
+         //   name += result["data"]["name"][i] + " "
+		 var name = result["data"]["name"][0] 
 		 var userid = result["data"]["userid"]
-		 document.getElementById("dev_profile").innerHTML = name+" "+"("+userid+")";
+		 document.getElementById("user_name").innerHTML = name;
+		 document.getElementById("user_id").innerHTML = "("+userid+")";
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
@@ -117,7 +119,7 @@ function printData()
 	}
 }
 
-
+var proxy_num = 0
 function playSong(cell)
 {
 	cell.onclick=function() {
@@ -138,7 +140,14 @@ function playSong(cell)
 			audio = document.getElementById("id_audio");
 		}
 		//audio.src = '/songs/'+songName+".mp3";
-		audio.src = '/songs/i cant help myself sugar pie honey bunch.mp3'
+		//audio.src = '/songs/i cant help myself sugar pie honey bunch.mp3'
+		var proxy_list = ['/songs/0.mp3','/songs/1.mp3','/songs/2.mp3']
+		//proxy_num = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+		audio.src = proxy_list[proxy_num]
+		proxy_num++;
+		if(proxy_num==3){
+			proxy_num = 0
+		}
 		audio.controls = true;
 		audio.autoplay = true;
 		audio.id = 'id_audio';
@@ -148,6 +157,7 @@ function playSong(cell)
 		//alert("audio loaded");
 		audio.play();
 		//alert("audio played");
+		//document.getElementById("footer").className = "foo-footer"
 		document.getElementById("id_songName").innerHTML=songName;
 		add_to_history(songName)
 	};

@@ -35,9 +35,10 @@ function set_profile()
         success: function (result) {
          // Write something here
          var userid = result["data"]["userid"]
-         var name = ""
-         for (i=0; result["data"]["name"][i]!=null; i++)
-            name += result["data"]["name"][i] + " "
+         //var name = ""
+         //for (i=0; result["data"]["name"][i]!=null; i++)
+         //   name += result["data"]["name"][i] + " "
+         var name = result["data"]["name"][0]
          var address = result["data"]["address"]
          var Country = result["data"]["Country"]
          var Zipcode = result["data"]["Zipcode"]
@@ -45,8 +46,8 @@ function set_profile()
          var english = result["data"]["english"]
          
          document.getElementById("user_name").innerHTML = name;
-         document.getElementById("user_id").innerHTML = userid;
-        document.getElementById("profile_header").innerHTML = userid.toUpperCase() + "'S PROFILE";
+		 document.getElementById("user_id").innerHTML = "("+userid+")";
+        document.getElementById("profile_header").innerHTML = name.toUpperCase() + "'S PROFILE";
         document.getElementById("userid").innerHTML = userid;
         document.getElementById("name").innerHTML = name;
         document.getElementById("address").innerHTML = address;
