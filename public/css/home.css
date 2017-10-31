@@ -2,6 +2,7 @@ body {
     display: inline;
     font-family: "Roboto", sans-serif;
     color: white;
+    /*background: linear-gradient(90deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);*/
     background-color: rgb(100,100,100);
 }
 
@@ -245,6 +246,70 @@ article{
 
     to {
         background-color: green;
+    }
+}
+
+#myTable{
+    width:100%;
+    background-color:#333;
+}
+
+    #myTable tr {
+        height: 6em;
+    }
+
+    #myTable tr:hover {
+        color:black;
+        animation:1s rainbow_text infinite;
+        /*background-color: green;*/
+    }
+/*
+    .foo-footer:hover{
+        animation:1s rainbow_text infinite;
+    }
+*/
+@keyframes rainbow_text {
+     0%{
+         background: linear-gradient(90deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+
+     }
+    14.2% {
+        background: linear-gradient(90deg, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3, #ff2400);
+    }
+    28.4% {
+        background: linear-gradient(90deg, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3, #ff2400, #e81d1d);
+    }
+    42.6% {
+        background: linear-gradient(90deg, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3, #ff2400, #e81d1d, #e8b71d);
+    }
+    56.8% {
+        background: linear-gradient(90deg, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3, #ff2400, #e81d1d, #e8b71d, #e3e81d);
+    }
+    71% {
+        background: linear-gradient(90deg, #1ddde8, #2b1de8, #dd00f3, #dd00f3, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840);
+    }
+    85.2% {
+        background: linear-gradient(90deg, #2b1de8, #dd00f3, #dd00f3, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8);
+    }
+    99.4% {
+        background: linear-gradient(90deg, #dd00f3, #dd00f3, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8);
+    }
+}
+
+.play_img {
+    width: 15%;
+}
+    .play_img:hover {
+        animation: 0.5s play_btn forwards;
+    }
+
+@keyframes play_btn {
+    from {
+        width: 15%;
+    }
+
+    to {
+        width: 20%;
     }
 }
 
