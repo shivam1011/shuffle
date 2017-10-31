@@ -235,7 +235,7 @@ article{
 }
 
 .user_profile tr:hover {
-    animation: 1s user_profile_hover forwards;
+    animation: 0.5s user_profile_hover forwards;
 }
 
 @keyframes user_profile_hover {
