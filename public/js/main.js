@@ -226,7 +226,7 @@ function add_to_history(songName)
 function load_history()
 {
 	play_load_gif()
-	alert("WOAHHHHHH!!!")
+	//alert("WOAHHHHHH!!!")
 	var history = [[],[]];
 	$.ajax({
         url: "/kaam3/load_history",
@@ -249,7 +249,7 @@ function load_history()
 
 function display_history(history)
 {
-	alert("History di length: "+history[0].length)
+	//alert("History di length: "+history[0].length)
 	try{
 		var i,j;
 		var tabla = document.getElementById("myTable");
