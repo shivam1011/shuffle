@@ -141,7 +141,7 @@ function playSong(cell)
 		var proxy_list = ['/songs/0.mp3','/songs/1.mp3','/songs/2.mp3']
 		//audio.src = '/songs/i cant help myself sugar pie honey bunch.mp3'
 		audio.src = proxy_list[proxy_num]
-		alert(audio.src)
+		//alert(audio.src)
 		proxy_num++;
 		if(proxy_num==3){
 			proxy_num = 0
@@ -155,7 +155,8 @@ function playSong(cell)
 		//alert("audio loaded");
 		audio.play();
 		//alert("audio played");
-		document.getElementById("id_songName").innerHTML=songName;
+		document.getElementById("id_songName").innerHTML = songName;
+		document.getElementById("pol").style.display = "none";
 		add_to_history(songName)
 	};
 	cell.onmouseover = function() {
